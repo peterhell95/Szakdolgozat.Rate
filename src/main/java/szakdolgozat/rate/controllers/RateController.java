@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import szakdolgozat.rate.dto.BookDTO;
 import szakdolgozat.rate.dto.RateDTO;
 import szakdolgozat.rate.services.RateService;
 
@@ -31,8 +32,13 @@ public class RateController {
         return service.createRate(rate);
     }
 
-    @GetMapping("/list/{id}")
+    @GetMapping("/list/rate/{id}")
     public List<RateDTO> getRateListById(@PathVariable Long id) {
         return service.getRateListById(id);
+    }
+
+    @GetMapping("/list/book/{id}")
+    public BookDTO getBookById(@PathVariable Long id) {
+        return service.getOneBook(id);
     }
 }

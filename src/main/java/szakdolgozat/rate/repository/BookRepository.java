@@ -1,21 +1,16 @@
 package szakdolgozat.rate.repository;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import szakdolgozat.rate.model.Book;
-import szakdolgozat.rate.model.Rate;
 
-public interface RateRepository extends JpaRepository<Rate, Long> {
+public interface BookRepository extends JpaRepository<Book, String> {
 
-    Optional<Rate> findById(Long id);
+    Optional<Book> findById(Long id);
 
     void deleteById(Long id);
 
-    List<Rate> findAllByOrderid(Long id);
-
     Book findAllById(Long id);
-
 }
