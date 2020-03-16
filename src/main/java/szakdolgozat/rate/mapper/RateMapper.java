@@ -17,6 +17,7 @@ public interface RateMapper {
     public RateDTO rateToRateDTO(Rate source);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "rate", ignore = true)
     public Rate rateDTOToRate(RateDTO source);
 
     @IterableMapping(qualifiedByName = "rateToRateDTO")
