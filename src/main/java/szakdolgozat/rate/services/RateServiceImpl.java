@@ -6,9 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.Getter;
 import lombok.Setter;
-import szakdolgozat.rate.dto.BookDTO;
-import szakdolgozat.rate.mapper.BookMapper;
-import szakdolgozat.rate.model.Book;
+import szakdolgozat.rate.dto.RateDTO;
+import szakdolgozat.rate.mapper.RateMapper;
+import szakdolgozat.rate.model.Rate;
 import szakdolgozat.rate.repository.RateRepository;
 
 @Service
@@ -20,18 +20,24 @@ public class RateServiceImpl implements RateService {
     private RateRepository repository;
 
     @Autowired
-    private BookMapper bookMapper;
+    private RateMapper rateMapper;
 
-    public BookDTO rateBook(Long id, Float rate) {
-        BookDTO book = getOneBook(id);
-        book.setRatecount(book.getRatecount() + 1);
+    public RateDTO rateBook(Long id, Float rate) {
+        RateDTO book = getOneRate(id);
+        /* book.setRatecount(book.getRatecount() + 1);
         book.setRate(rate + book.getRate());
-        Book entity = bookMapper.bookDTOToBookUpdate(book);
-        return bookMapper.bookToBookDTO(repository.save(entity));
+        Rate entity = bookMapper.bookDTOToBookUpdate(book);
+        return bookMapper.bookToBookDTO(repository.save(entity));*/
+        return book;
     }
 
-    public BookDTO getOneBook(Long id) {
-        return bookMapper.bookToBookDTO(repository.findById(id).get());
+    public RateDTO getOneRate(Long id) {
+        return rateMapper.rateToRateDTO(repository.findById(id).get());
+    }
+
+    public RateDTO createRate(RateDTO rate) {
+        Rate entity = rateMapper.rateDTOToRate(rate);
+        return rateMapper.rateToRateDTO(repository.save(entity));
     }
 
 }

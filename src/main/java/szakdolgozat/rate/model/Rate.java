@@ -13,26 +13,21 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "books")
-public class Book implements Serializable {
+@Table(name = "rate")
+public class Rate implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "orderid")
+    private Long orderid;
 
-    @Column(name = "author")
-    private String author;
+    @Column(name = "bookid")
+    private Long bookid;
 
     @Column(name = "rate")
     private Float rate = (float) 5;
 
-    @Column(name = "ratecount")
-    private Long ratecount = (long) 1;
-
-    @Column(name = "price")
-    private Integer price;
 }

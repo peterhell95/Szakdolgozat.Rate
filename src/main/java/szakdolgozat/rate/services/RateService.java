@@ -1,11 +1,12 @@
 package szakdolgozat.rate.services;
 
-import szakdolgozat.rate.dto.BookDTO;
+import szakdolgozat.rate.dto.RateDTO;
 
 public interface RateService {
 
-    public BookDTO rateBook(Long id, Float rate);
+    public RateDTO rateBook(Long id, Float rate);
 
-    public BookDTO getOneBook(Long id);
+    public RateDTO getOneRate(Long id);
 
+    public RateDTO createRate(RateDTO rate);
 }

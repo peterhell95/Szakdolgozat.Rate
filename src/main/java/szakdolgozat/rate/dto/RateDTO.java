@@ -9,17 +9,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookDTO {
+public class RateDTO {
 
     private Long id;
 
-    private String title;
+    private Long orderid;
 
-    private String author;
+    private Long bookid;
 
     private Float rate;
 
-    private Long ratecount;
-
-    private Long price;
 }
