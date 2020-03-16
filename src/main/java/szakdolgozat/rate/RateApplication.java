@@ -1,4 +1,4 @@
-package szakdolgozat.security;
+package szakdolgozat.rate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class SecurityApplication {
+public class RateApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SecurityApplication.class, args);
+        SpringApplication.run(RateApplication.class, args);
     }
 
 }

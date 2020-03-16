@@ -8,12 +8,12 @@
 		<version>2.0.0.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>szakdolgozat.security</groupId>
-	<artifactId>security</artifactId>
+	<groupId>szakdolgozat.rate</groupId>
+	<artifactId>rate</artifactId>
 	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>security</name>
-	<description>Szakdolgozat Security</description>
+	<name>rate</name>
+	<description>Szakdolgozat Rate</description>
 
 	<properties>
 		<java.version>1.8</java.version>
