@@ -1,4 +1,4 @@
-package szakdolgozat.security.model;
+package szakdolgozat.rate.model;
 
 import java.io.Serializable;
 
@@ -13,19 +13,25 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "orders")
-public class Order implements Serializable {
+@Table(name = "books")
+public class Book implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "comment")
-    private String comment;
+    @Column(name = "title")
+    private String title;
 
-    @Column(name = "delivery")
-    private String delivery;
+    @Column(name = "author")
+    private String author;
+
+    @Column(name = "rate")
+    private Float rate = (float) 5;
+
+    @Column(name = "ratecount")
+    private Long ratecount = (long) 1;
 
     @Column(name = "price")
     private Integer price;

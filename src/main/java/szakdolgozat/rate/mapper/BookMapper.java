@@ -1,4 +1,4 @@
-package szakdolgozat.security.mapper;
+package szakdolgozat.rate.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,21 +8,23 @@ import org.mapstruct.IterableMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import szakdolgozat.security.dto.OrderDTO;
-import szakdolgozat.security.model.Order;
+import szakdolgozat.rate.dto.BookDTO;
+import szakdolgozat.rate.model.Book;
 
 @Mapper
-public interface OrderMapper {
+public interface BookMapper {
 
-    public OrderDTO orderToOrderDTO(Order source);
+    public BookDTO bookToBookDTO(Book source);
 
     @Mapping(target = "id", ignore = true)
-    public Order orderDTOToOrder(OrderDTO source);
+    @Mapping(target = "rate", ignore = true)
+    @Mapping(target = "ratecount", ignore = true)
+    public Book bookDTOToBook(BookDTO source);
 
-    @IterableMapping(qualifiedByName = "orderToOrderDTO")
-    public default List<OrderDTO> orderListToOrderDTOList(List<Order> source) {
-        return source == null ? new ArrayList<>() : source.stream().map(this::orderToOrderDTO).collect(Collectors.toList());
+    @IterableMapping(qualifiedByName = "bookToBookDTO")
+    public default List<BookDTO> bookListToBookDTOList(List<Book> source) {
+        return source == null ? new ArrayList<>() : source.stream().map(this::bookToBookDTO).collect(Collectors.toList());
     }
 
-    public Order orderDTOToOrderUpdate(OrderDTO source);
+    public Book bookDTOToBookUpdate(BookDTO source);
 }

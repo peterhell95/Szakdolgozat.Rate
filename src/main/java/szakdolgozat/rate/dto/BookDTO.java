@@ -1,4 +1,4 @@
-package szakdolgozat.security.dto;
+package szakdolgozat.rate.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,13 +9,17 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderDTO {
+public class BookDTO {
 
     private Long id;
 
-    private String comment;
+    private String title;
 
-    private String delivery;
+    private String author;
+
+    private Float rate;
+
+    private Long ratecount;
 
     private Long price;
 }

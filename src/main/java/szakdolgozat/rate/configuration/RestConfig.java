@@ -1,5 +1,5 @@
 
-package szakdolgozat.security.configuration;
+package szakdolgozat.rate.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,37 +1,21 @@
-package szakdolgozat.security.controllers;
-
-import java.util.List;
+package szakdolgozat.rate.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import szakdolgozat.security.dto.OrderDTO;
-import szakdolgozat.security.services.OrderService;
+import szakdolgozat.rate.services.RateService;
 
 @RestController
-@RequestMapping("/order")
-public class OrderController {
+@RequestMapping("/rate")
+public class RateController {
 
     @Autowired
-    private OrderService service;
+    private RateService service;
 
-    @GetMapping("/list")
-    public List<OrderDTO> getAllOrder() {
-        return service.getAllOrder();
-    }
+    /*  @PutMapping("/{id}/rate/{rate}")
+    public BookDTO rateBook(@PathVariable Long id, @PathVariable Float rate) {
+        return service.rateBook(id, rate);
+    } */
 
-    @GetMapping("/list/{id}")
-    public OrderDTO getOrderById(@PathVariable Long id) {
-        return service.getOneOrder(id);
-    }
-
-    @PostMapping("/add")
-    public OrderDTO createOrder(@RequestBody OrderDTO order) {
-        return service.createOrder(order);
-    }
 }
