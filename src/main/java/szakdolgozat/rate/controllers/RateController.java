@@ -23,14 +23,14 @@ public class RateController {
     private RateService service;
 
     @PutMapping("/{id}/rate/{rate}")
-    public RateDTO rateBook(@PathVariable Long id, @PathVariable Float rate) {
+    public BookDTO rateBook(@PathVariable Long id, @PathVariable Float rate) {
         return service.rateBook(id, rate);
     }
 
-    /*  @PutMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public RateDTO updateRate(@PathVariable Long id) {
         return service.updateRate(id);
-    }*/
+    }
 
     @PostMapping("/add")
     public RateDTO createRate(@RequestBody RateDTO rate) {

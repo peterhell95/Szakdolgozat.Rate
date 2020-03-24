@@ -18,4 +18,6 @@ public interface RateRepository extends JpaRepository<Rate, Long> {
 
     Book findAllById(Long id);
 
+    Optional<Rate> findByBookid(Long id);
+
 }

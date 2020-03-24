@@ -13,6 +13,7 @@ import szakdolgozat.rate.dto.BookDTO;
 import szakdolgozat.rate.dto.RateDTO;
 import szakdolgozat.rate.mapper.BookMapper;
 import szakdolgozat.rate.mapper.RateMapper;
+import szakdolgozat.rate.model.Book;
 import szakdolgozat.rate.model.Rate;
 import szakdolgozat.rate.repository.BookRepository;
 import szakdolgozat.rate.repository.RateRepository;
@@ -36,18 +37,20 @@ public class RateServiceImpl implements RateService {
     @Autowired
     private BookMapper bookMapper;
 
-    public RateDTO rateBook(Long id, Float rate) {
-        RateDTO book = getOneRate(id);
-        /* book.setRatecount(book.getRatecount() + 1);
+    public BookDTO rateBook(Long id, Float rate) {
+        BookDTO book = getOneBook(id);
+        book.setRatecount(book.getRatecount() + 1);
         book.setRate(rate + book.getRate());
-        Rate entity = bookMapper.bookDTOToBookUpdate(book);
-        return bookMapper.bookToBookDTO(repository.save(entity));*/
-        return book;
+        Book entity = bookMapper.bookDTOToBookUpdate(book);
+        return bookMapper.bookToBookDTO(repository2.save(entity));
     }
 
     public RateDTO getOneRate(Long id) {
-        log.debug("reteId:" + id);
         return rateMapper.rateToRateDTO(repository.findById(id).get());
+    }
+
+    public RateDTO getOneRateBook(Long id) {
+        return rateMapper.rateToRateDTO(repository.findByBookid(id).get());
     }
 
     public RateDTO createRate(RateDTO rate) {
@@ -64,8 +67,10 @@ public class RateServiceImpl implements RateService {
         return bookMapper.bookToBookDTO(repository2.findById(id).get());
     }
 
-    /*public RateDTO updateRate(RateDTO rate) {
-        Rate entity = rateMapper.bookDTOToBookUpdate(rate);
-        return bookMapper.bookToBookDTO(repository.save(entity));
-    }*/
+    public RateDTO updateRate(Long id) {
+        RateDTO rate = getOneRate(id);
+        rate.setRated(true);
+        Rate entity = rateMapper.rateDTOToRateUpdate(rate);
+        return rateMapper.rateToRateDTO(repository.save(entity));
+    }
 }

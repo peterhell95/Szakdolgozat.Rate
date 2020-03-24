@@ -7,9 +7,9 @@ import szakdolgozat.rate.dto.RateDTO;
 
 public interface RateService {
 
-    public RateDTO rateBook(Long id, Float rate);
+    public BookDTO rateBook(Long id, Float rate);
 
-    // public RateDTO updateRate(Long id);
+    public RateDTO updateRate(Long id);
 
     public RateDTO getOneRate(Long id);
 
