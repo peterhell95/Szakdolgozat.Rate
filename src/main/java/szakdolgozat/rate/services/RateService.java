@@ -9,6 +9,8 @@ public interface RateService {
 
     public RateDTO rateBook(Long id, Float rate);
 
+    // public RateDTO updateRate(Long id);
+
     public RateDTO getOneRate(Long id);
 
     public BookDTO getOneBook(Long id);

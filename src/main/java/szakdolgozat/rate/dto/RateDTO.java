@@ -19,4 +19,6 @@ public class RateDTO {
 
     private Float rate;
 
+    private Boolean rated;
+
 }

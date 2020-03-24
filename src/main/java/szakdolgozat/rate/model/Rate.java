@@ -30,4 +30,7 @@ public class Rate implements Serializable {
     @Column(name = "rate")
     private Float rate = (float) 5;
 
+    @Column(name = "rated")
+    private Boolean rated = false;
+
 }

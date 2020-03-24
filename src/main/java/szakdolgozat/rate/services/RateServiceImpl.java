@@ -63,4 +63,9 @@ public class RateServiceImpl implements RateService {
     public BookDTO getOneBook(Long id) {
         return bookMapper.bookToBookDTO(repository2.findById(id).get());
     }
+
+    /*public RateDTO updateRate(RateDTO rate) {
+        Rate entity = rateMapper.bookDTOToBookUpdate(rate);
+        return bookMapper.bookToBookDTO(repository.save(entity));
+    }*/
 }
