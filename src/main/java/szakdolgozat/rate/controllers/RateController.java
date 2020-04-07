@@ -16,7 +16,7 @@ import szakdolgozat.rate.dto.RateDTO;
 import szakdolgozat.rate.services.RateService;
 
 @RestController
-@RequestMapping("/rate")
+@RequestMapping("/api/rate")
 public class RateController {
 
     @Autowired
