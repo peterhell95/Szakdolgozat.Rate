@@ -32,10 +32,18 @@ pipeline {
             }
         }
         
-         stage ('Docker Push') {
+        stage ('Docker Push') {
             steps {
                 bat 'docker push peterhell95/rate:jenkins' 
             }
+        }
+        
+        stage('Apply Kubernetes files') {
+        	steps{
+        	withKubeConfig([credentialsId: 'my_kubernetes2',  serverUrl: 'https://192.168.41.137:8443']) {
+      			bat 'kubectl apply -f rate-deployment.yaml'
+   				}
+  			}
         }
     }
 }

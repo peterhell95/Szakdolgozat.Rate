@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rate
+  labels:
+    app: rate
+spec:
+  selector:
+    matchLabels:
+      app: rate
+  replicas: 2
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: rate
+    spec:
+      containers:
+        - image: peterhell95/rate:jenkins
+          imagePullPolicy: Always
+          name: rate
+          ports:
+            - containerPort: 8082
